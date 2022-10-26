@@ -8,15 +8,17 @@
             <section class="resume-section" id="education">
                 <div class="resume-section-content">
                     <h2 class="mb-5">Education</h2>
-                    {% for pendidikan in pendidikan %}
+                    {% for x in pendidikan %}
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">{{ pendidikan.sekolah }} </h3>
-                            <div class="subheading mb-3">{{ pendidikan.jenjang }}</div>
-                            <div>{{ pendidikan.jurusan }}</div><br>
-                            <p style="white-space: pre-line">{{ pendidikan.deskripsi_pendidikan }}</p>
+                            <h3 class="mb-0">{{ x.institusi }} </h3>
+                            <div class="subheading mb-3"><h4>{{ x.jenjang }}</h4></div>
+                            <div class="subheading">{{ x.jurusan }}</div><br>
+                                <ul>
+                                    <li>{{ x.deskripsi }}</li>
+                                </ul>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">{{ pendidikan.tahun_mulai }} - {{ pendidikan.tahun_selesai }}</span></div>
+                        <div class="flex-shrink-0"><span class="text-primary">{{ x.tahun_mulai }} - {{ x.tahun_selesai }}</span></div>
                     </div>
                     {% endfor %}
                 </div>

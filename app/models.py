@@ -18,7 +18,7 @@ class Saya(models.Model):
         return self.nama
     
 class Pendidikan(models.Model):
-    institusi = models.CharField(max_length=30)
+    institusi = models.CharField(max_length=255)
     tahun_mulai = models.CharField(max_length=10)
     tahun_selesai = models.CharField(max_length=10)
     jurusan = models.CharField(max_length=30, null=True)
