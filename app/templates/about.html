@@ -1,0 +1,32 @@
+            {% extends 'base.html' %}
+
+            {% block title %} About - Hafidh Difa Al Haq {% endblock %}
+
+            {% block content %}
+
+            <!-- About-->
+            <section class="resume-section" id="about">
+                <div class="resume-section-content">
+                    {% for x in saya %}
+                    <h1 class="mb-0">
+                        {{ x.nama }}
+                    </h1>
+                    <div class="subheading mb-5">
+                        {{ x.alamat }} · {{ x.no_hp }} ·
+                        <a href="mailto:name@email.com">{{ x.email }}</a>
+                    </div>
+                    <h3>Summary</h3>
+                    <div class="conten" style="text-align:justify">
+                        {{ x.deskripsi}}
+                    </div>
+                    <p class="lead mb-5" style="text-align: justify">{% for deskripsi_diri in deskripsi_diri%} {{ deskripsi_diri.deskripsi_diri }} {% endfor %}</p><div class="social-icons">
+                        <a class="social-icon" href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="social-icon" href="#"><i class="fab fa-github"></i></a>
+                        <a class="social-icon" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="social-icon" href="#"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+
+            {% endblock %}

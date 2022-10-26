@@ -1,0 +1,25 @@
+            {% extends 'base.html' %}
+
+            {% block title %} Certificate {% endblock %}
+
+            {% block content %}
+
+            <!-- Education-->
+            <section class="resume-section" id="education">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Certificate</h2>
+                    <ul>
+                    {% for sertifikat in sertifikat %}
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <div class="subheading mb-3">
+                                <li>{{ sertifikat.sertifikat }}</li>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </section>
+            
+            {% endblock %}

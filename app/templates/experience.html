@@ -1,0 +1,34 @@
+            {% extends 'base.html' %}
+
+            {% block title %} Expereience {% endblock %}
+
+            {% block content %}
+
+            <!-- Education-->
+            <section class="resume-section" id="education">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Projects Expereience</h2>
+                    <div class="table-responsive p-3">
+                      <table class="table align-items-center table-flush" id="dataTable">
+                        <thead class="thead-light">
+                          <tr align="center">
+                            <th>Project Name</th>
+                            <th>Category</th>
+                            <th>Work Position</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for p in projek %}
+                          <tr align="center">
+                            <td>{{ p.nama_projek }}</td>
+                            <td>{{ p.kategori }}</td>
+                            <td>{{ p.bagian }}</td>
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>   
+                </div>
+            </section>
+            
+            {% endblock %}

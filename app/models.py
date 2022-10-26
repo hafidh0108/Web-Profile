@@ -9,6 +9,10 @@ class Saya(models.Model):
     tanggal_lahir = models.CharField(max_length=20)
     alamat = models.TextField()
     deskripsi = models.TextField()
+    linkedin = models.CharField(max_length=255, null=True)
+    github = models.CharField(max_length=255, null=True)
+    twitter = models.CharField(max_length=255, null=True)
+    instagram = models.CharField(max_length=255, null=True)
 
     def __str__(self):
         return self.nama
@@ -67,8 +71,18 @@ class Kemampuan(models.Model):
     def __str__(self):
         return self.kemampuan
     
-class TingakatanKemampuan(models.Model):
+class TingkatanKemampuan(models.Model):
     tingkatan = models.CharField(max_length=255)
     
     def __str__(self):
         return self.tingkatan
+    
+class Kerja(models.Model):
+    perusahaan = models.CharField(max_length=255)
+    tahun_mulai = models.CharField(max_length=255)
+    tahun_selesai = models.CharField(max_length=255)
+    posisi = models.CharField(max_length=255)
+    deskripsi = models.TextField()
+    
+    def __str__(self):
+        return self.perusahaan

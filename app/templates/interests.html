@@ -1,0 +1,25 @@
+            {% extends 'base.html' %}
+
+            {% block title %} Interests {% endblock %}
+
+            {% block content %}
+
+            <!-- Education-->
+            <section class="resume-section" id="education">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Interests</h2>
+                    <ul>
+                    {% for hobi in hobi %}
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <div class="subheading mb-3">
+                                <li>{{ hobi.hobi }}</li>
+                            <div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </section>
+            
+            {% endblock %}

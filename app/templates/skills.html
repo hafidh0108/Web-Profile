@@ -1,0 +1,44 @@
+            {% extends 'base.html' %}
+
+            {% load static %}
+
+            {% block title %} Skills {% endblock %}
+
+            {% block content %}
+            
+            <!-- Skills-->
+            <section class="resume-section" id="skills">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Skills</h2>
+                    <div class="subheading mb-3">Programming Languages & Tools</div>
+                    <table border="0" width="90%">
+                        {% for kemampuan in kemampuan %}
+                        <tr>
+                            <td><li></li><td>
+                            <td><h5>{{ kemampuan.kemampuan }}</h5></td>
+                            <td><img src="{{ kemampuan.logo.url }}" height="100px"></td>
+                            <td align="center">
+                            {% if kemampuan.rating == 3%}
+                                <img src="{% static 'img/star.png' %}" height="20px">
+                                <img src="{% static 'img/star.png' %}" height="20px">
+                                <img src="{% static 'img/star.png' %}" height="20px">
+                            {% elif kemampuan.rating == 4 %}
+                                <img src="{% static 'img/star.png' %}" height="20px">
+                                <img src="{% static 'img/star.png' %}" height="20px">
+                                <img src="{% static 'img/star.png' %}" height="20px">
+                                <img src="{% static 'img/star.png' %}" height="20px">
+                            {% elif kemampuan.rating == 5 %}
+                                <img src="/static/img/star.png" height="20px">
+                                <img src="{% static 'img/star.png' %}" height="20px">
+                                <img src="{% static 'img/star.png' %}" height="20px">
+                                <img src="{% static 'img/star.png' %}" height="20px">
+                                <img src="{% static 'img/star.png' %}" height="20px">
+                            {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </section>
+
+            {% endblock %}
