@@ -65,8 +65,8 @@ class TeknologiProjek(models.Model):
     
 class Kemampuan(models.Model):
     kemampuan = models.CharField(max_length=50)
-    logo = models.ImageField(upload_to='logo/')
-    tingkatan = models.ForeignKey('app.TingkatanKemampuan', on_delete=models.CASCADE)
+    logo = models.ImageField(upload_to='logo/', blank=True, null=True)
+    tingkatan = models.ForeignKey('app.TingkatanKemampuan', on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         return self.kemampuan
