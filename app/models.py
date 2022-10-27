@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Saya(models.Model):
-    nama = models.CharField(max_length=50)
+    nama = models.CharField(max_length=255)
     email = models.CharField(max_length=30)
     no_hp = models.CharField(max_length=15, null=True)
     tempat_lahir = models.CharField(max_length=20)
@@ -33,7 +33,7 @@ class Pendidikan(models.Model):
         return self.institusi
     
 class Sertifikat(models.Model):
-    sertifikat = models.CharField(max_length=50)
+    sertifikat = models.CharField(max_length=255)
     scan = models.ImageField(upload_to='scan/')
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, null=True)
@@ -42,7 +42,7 @@ class Sertifikat(models.Model):
         return self.sertifikat
 
 class KategoriProjek(models.Model):
-    kategori_projek = models.CharField(max_length=30)
+    kategori_projek = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, null=True)
 
@@ -50,10 +50,10 @@ class KategoriProjek(models.Model):
         return self.kategori_projek
     
 class Projek(models.Model):
-    nama_projek = models.CharField(max_length=100)
+    nama_projek = models.CharField(max_length=255)
     kategori_projek = models.ForeignKey('app.KategoriProjek', on_delete=models.CASCADE)
     posisi = models.CharField(max_length=30)
-    link = models.CharField(max_length=200, null=True)
+    link = models.CharField(max_length=200, null=True , blank=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, null=True)
     
@@ -62,7 +62,7 @@ class Projek(models.Model):
     
 class DokumentasiProjek(models.Model):
     projek = models.ForeignKey(Projek, on_delete=models.CASCADE, related_name='dokumentasi_projek')
-    nama_dokumentasi = models.CharField(max_length=100)
+    nama_dokumentasi = models.CharField(max_length=255)
     gambar = models.ImageField(upload_to='projek/')
     deskripsi_dokumentasi = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True, null=True)
@@ -73,15 +73,15 @@ class DokumentasiProjek(models.Model):
     
 class TeknologiProjek(models.Model):
     projek = models.ForeignKey(Projek, on_delete=models.CASCADE, related_name='teknologi_projek')
-    teknologi = models.CharField(max_length=50)
+    teknologi = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, null=True)
 
     def __str__(self):
-        return self.teknologi
+        return f'{self.teknologi} | {self.projek.nama_projek}'
     
 class Kemampuan(models.Model):
-    kemampuan = models.CharField(max_length=50)
+    kemampuan = models.CharField(max_length=255)
     logo = models.ImageField(upload_to='logo/', blank=True, null=True)
     tingkatan = models.ForeignKey('app.TingkatanKemampuan', on_delete=models.CASCADE, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True)

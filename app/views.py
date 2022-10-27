@@ -25,10 +25,8 @@ def skills(request):
 
 def experience(request):
     kerja = models.Kerja.objects.all()
-    tugas_kerja = models.TugasKerja.objects.all()
     konteks = {
         'kerja' : kerja,
-        'tugas_kerja' : tugas_kerja,
     }
     return render(request, 'experience.html', konteks)
 
