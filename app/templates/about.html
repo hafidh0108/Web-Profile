@@ -19,12 +19,13 @@
                     <div class="conten" style="text-align:justify">
                         {{ x.deskripsi}}
                     </div>
-                    <p class="lead mb-5" style="text-align: justify">{% for deskripsi_diri in deskripsi_diri%} {{ deskripsi_diri.deskripsi_diri }} {% endfor %}</p><div class="social-icons">
+                    <p class="lead mb-5" style="text-align: justify">{% for deskripsi_diri in deskripsi_diri%} {{ deskripsi_diri.deskripsi_diri }} {% endfor %}</p>
+                    {% comment %} <div class="social-icons">
                         <a class="social-icon" href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a class="social-icon" href="#"><i class="fab fa-github"></i></a>
                         <a class="social-icon" href="#"><i class="fab fa-twitter"></i></a>
                         <a class="social-icon" href="#"><i class="fab fa-facebook-f"></i></a>
-                    </div>
+                    </div> {% endcomment %}
                     {% endfor %}
                 </div>
             </section>

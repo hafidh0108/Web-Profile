@@ -82,7 +82,13 @@ class Kerja(models.Model):
     tahun_mulai = models.CharField(max_length=255)
     tahun_selesai = models.CharField(max_length=255)
     posisi = models.CharField(max_length=255)
-    deskripsi = models.TextField()
     
     def __str__(self):
         return self.perusahaan
+    
+class TugasKerja(models.Model):
+    kerja = models.ForeignKey('app.Kerja', on_delete=models.CASCADE, related_name='tugas_kerja')
+    tugas = models.CharField(max_length=255)
+    
+    def __str__(self):
+        return self.tugas

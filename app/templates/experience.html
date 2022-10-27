@@ -1,21 +1,23 @@
             {% extends 'base.html' %}
 
-            {% block title %} Education {% endblock %}
+            {% block title %} Experience {% endblock %}
 
             {% block content %}
 
             <!-- Education-->
             <section class="resume-section" id="education">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Education</h2>
-                    {% for x in pendidikan %}
+                    <h2 class="mb-5">Experience</h2>
+                    {% for x in kerja %}
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">{{ x.institusi }} </h3>
+                            <h3 class="mb-0">{{ x.perusahaan }} </h3>
                             <div class="subheading mb-3"><h4>{{ x.jenjang }}</h4></div>
-                            <div class="subheading">{{ x.jurusan }}</div><br>
+                            <div class="subheading">{{ x.posisi }}</div><br>
                                 <ul>
-                                    <li>{{ x.deskripsi }}</li>
+                                  {% for y in x.tugas_kerja.all %}
+                                  <li>{{ y.tugas }}</li>
+                                  {% endfor %}
                                 </ul>
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">{{ x.tahun_mulai }} - {{ x.tahun_selesai }}</span></div>
