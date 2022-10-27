@@ -31,3 +31,10 @@ def experience(request):
         'tugas_kerja' : tugas_kerja,
     }
     return render(request, 'experience.html', konteks)
+
+def portfolio(request):
+    projek = models.Projek.objects.all()
+    konteks = {
+        'projek' : projek
+    }
+    return render(request, 'portfolio.html', konteks)

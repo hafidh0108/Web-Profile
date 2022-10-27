@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %} Portfolio {% endblock %}
+
+{% block content %}
+
+<!-- Education-->
+<section class="resume-section" id="education">
+    <div class="resume-section-content">
+        <h2 class="mb-5">Portfolio</h2>
+        {% for x in projek %}
+        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+            <table border="1">
+                <tr>
+                    <td>Test</td>
+                </tr>
+            </table>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}
