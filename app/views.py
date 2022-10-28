@@ -7,6 +7,7 @@ def about(request):
     konteks = {
         'saya' : saya,
     }
+    activity('about')
     return render(request, 'about.html', konteks)
 
 def education(request):
@@ -14,6 +15,7 @@ def education(request):
     konteks = {
         'pendidikan' : pendidikan
     }
+    activity('education')
     return render(request, 'education.html', konteks)
 
 def skills(request):
@@ -21,6 +23,7 @@ def skills(request):
     konteks = {
         'kemampuan' : kemampuan
     }
+    activity('skills')
     return render(request, 'skills.html', konteks)
 
 def experience(request):
@@ -28,6 +31,7 @@ def experience(request):
     konteks = {
         'kerja' : kerja,
     }
+    activity('experience')
     return render(request, 'experience.html', konteks)
 
 def portfolio(request):
@@ -35,4 +39,8 @@ def portfolio(request):
     konteks = {
         'projek' : projek
     }
+    activity('portofolio')
     return render(request, 'portfolio.html', konteks)
+
+def activity(menu):
+    models.Aktifitas.objects.create(menu=menu)

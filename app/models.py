@@ -118,3 +118,18 @@ class TugasKerja(models.Model):
     
     def __str__(self):
         return self.tugas
+    
+class PosisiProjek(models.Model):
+    posisi = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    def __str__(self):
+        return self.posisi
+    
+class Aktifitas(models.Model):
+    menu = models.CharField(max_length=255)
+    diakses = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.menu
