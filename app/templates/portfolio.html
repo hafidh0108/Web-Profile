@@ -4,35 +4,72 @@
 
 {% block content %}
 
+{% comment %} <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" /> {% endcomment %}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap4.min.css" /> 
+ 
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.3.0/js/responsive.bootstrap4.min.js"></script>
+
 <!-- Education-->
 <section class="resume-section" id="education">
     <div class="resume-section-content">
         <h2 class="mb-5">Portfolio</h2>
-        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-            <table class="table table-striped table-bordered">
+        <div class="d-flex flex-column flex-md-row justify-content-between mb-0">
+            <table id="example" class="table table-striped table-bordered table-responsive" align="center">
                 <thead class="table-dark">
                     <tr align="center">
                         <td>Project Name</td>
                         <td>Link</td>
                         <td>Technology</td>
+                        <td>Position</td>
                     </tr>
                 </thead>
-                {% for x in projek %}
                 <tbody>
+                    {% for x in projek %}
                     <tr>
                         <td>{{ x.nama_projek }}</td>
                         <td><a href="{{ x.link }}" target="_blank">{{ x.link | default_if_none:"" }}</a></td>
                         <td>
                             {% for y in x.teknologi_projek.all %}
-                                {{ y.teknologi }},
+                                {% if forloop.last %}
+                                    {{ y.teknologi }}
+                                {% else %}
+                                    {{ y.teknologi }},
+                                {% endif %}
                             {% endfor %}
+                            {% comment %} {% for y in x.teknologi_projek.all %}
+                                {% if not forloop.first %}
+                                    {% if forloop.last %} 
+                                    and {{ y.teknologi }}
+                                    {% else %}
+                                    , {{ y.teknologi }}
+                                    {% endif %}
+                                {% else %}
+                                {{ y.teknologi }}
+                                {% endif %}
+                            {% endfor %} {% endcomment %}
                         </td>
+                        <td>{{ x.posisi }}</td>
                     </tr>
+                    {% endfor %}
                 </tbody>
-                {% endfor %}
             </table>
         </div>
     </div>
 </section>
+
+<script>
+    {% comment %} $.noConflict(); {% endcomment %}
+    $(document).ready(function(){
+      $('#example').DataTable({
+        lengthMenu: [15, 20, 50, 100, 200, 500],
+        "ordering": false
+      });
+  });
+</script>
 
 {% endblock %}

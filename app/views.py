@@ -31,7 +31,7 @@ def experience(request):
     return render(request, 'experience.html', konteks)
 
 def portfolio(request):
-    projek = models.Projek.objects.all()
+    projek = models.Projek.objects.all().order_by('-created_at')
     konteks = {
         'projek' : projek
     }
