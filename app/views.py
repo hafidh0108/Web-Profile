@@ -49,7 +49,7 @@ def portfolio_detail(request, pk):
         konteks = {
             'projek' : projek
         }
-        activity('detail portofolio')
+        activity('detail portofolio' + str(projek.nama_projek))
         return render(request, 'portfolio_detail.html', konteks)
     except models.Projek.DoesNotExist:
         return HttpResponseNotFound('')
