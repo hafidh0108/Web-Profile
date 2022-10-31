@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css" />
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap4.min.css" /> 
  
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
@@ -26,6 +26,7 @@
                         <td>Link</td>
                         <td>Technology</td>
                         <td>Position</td>
+                        <td>Action</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -54,6 +55,7 @@
                             {% endfor %} {% endcomment %}
                         </td>
                         <td>{{ x.posisi }}</td>
+                        <td><a href="{% url 'portfolio_detail' x.id|stringformat:'s' %}" class="btn btn-primary" title="Detail"><i class="fa fa-eye"></i></a></td>
                     </tr>
                     {% endfor %}
                 </tbody>
